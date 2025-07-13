@@ -64,5 +64,5 @@ Kontribusi sangat dihargai! Jika Anda memiliki saran, perbaikan, atau ingin mena
 ---
 
 ## Lisensi 📜
-Proyek ini dilisensikan di bawah Lisensi MIT. Lihat file LICENSE untuk detail lebih lanjut.
+Proyek ini dilisensikan di bawah Lisensi MIT. Lihat file  `LICENSE` untuk detail lebih lanjut.
 SDLC Insight - Membantu Anda memahami dunia pengembangan perangkat lunak dengan lebih baik. 💡
