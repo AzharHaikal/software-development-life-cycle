@@ -1,0 +1,45 @@
+/* Custom CSS */
+body {
+    font-family: 'Inter', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+}
+/* Parallax effect for specific sections */
+.parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.parallax-1 { background-image: url('../images/parallax-1.jpg'); } /* Placeholder image */
+.parallax-2 { background-image: url('../images/parallax-2.jpg'); } /* Placeholder image */
+.parallax-3 { background-image: url('../images/parallax-3.jpg'); } /* Placeholder image */
+
+/* Scroll progress indicator */
+#progressBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: #f97316; /* Orange accent */
+    width: 0%;
+    z-index: 1000;
+}
+
+/* Custom scrollbar for better aesthetics */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #e2e8f0; /* Light gray */
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #94a3b8; /* Slate gray */
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #64748b; /* Darker slate gray */
+}

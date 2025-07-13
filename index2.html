@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDLC Insight: Panduan Lengkap Siklus Hidup Pengembangan Perangkat Lunak</title>
+    <meta name="description" content="Pelajari semua tentang Software Development Lifecycle (SDLC) dari dasar hingga tingkat profesional, dalam Bahasa Indonesia yang mudah dipahami.">
+    <meta name="keywords" content="SDLC, Software Development Lifecycle, Pengembangan Perangkat Lunak, Metodologi Agile, Waterfall, URD, BRD, FSD, TSD, Pengujian, Deployment, Pemeliharaan">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.yourwebsite.com/"> <!-- Ganti dengan URL situs Anda -->
+    <meta property="og:title" content="SDLC Insight: Panduan Lengkap Siklus Hidup Pengembangan Perangkat Lunak">
+    <meta property="og:description" content="Pelajari semua tentang Software Development Lifecycle (SDLC) dari dasar hingga tingkat profesional, dalam Bahasa Indonesia yang mudah dipahami.">
+    <meta property="og:image" content="https://www.yourwebsite.com/og-image.jpg"> <!-- Ganti dengan URL gambar Anda -->
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts: Inter, Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Heroicons (via Tailwind JIT for direct usage) or FontAwesome -->
+    <!-- For Heroicons, we'll use inline SVG or Tailwind's JIT compiler if configured. For this example, we'll use simple inline SVGs. -->
+    <!-- For FontAwesome, you'd typically link to its CDN:
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    -->
+
+    <style>
+        /* Custom CSS */
+        body {
+            font-family: 'Inter', sans-serif;
+            @apply text-gray-800 bg-white transition-colors duration-300;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Parallax effect for specific sections */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .parallax-1 { background-image: url('assets/images/parallax-1.jpg'); } /* Placeholder image */
+        .parallax-2 { background-image: url('assets/images/parallax-2.jpg'); } /* Placeholder image */
+        .parallax-3 { background-image: url('assets/images/parallax-3.jpg'); } /* Placeholder image */
+
+        /* Scroll progress indicator */
+        #progressBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #f97316; /* Orange accent */
+            width: 0%;
+            z-index: 1000;
+        }
+
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e2e8f0; /* Light gray */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8; /* Slate gray */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b; /* Darker slate gray */
+        }
+
+        /* Badges styling */
+        .badge {
+            @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+        }
+        .badge-beginner {
+            @apply bg-green-100 text-green-800;
+        }
+        .badge-intermediate {
+            @apply bg-yellow-100 text-yellow-800;
+        }
+        .badge-advanced {
+            @apply bg-red-100 text-red-800;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 transition-colors duration-300">
+
+    <!-- Scroll Progress Indicator -->
+    <div id="progressBar"></div>
+
+    <!-- Sticky Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm shadow-md z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600">SDLC Insight</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#hero" class="hover:text-blue-600 transition-colors">Beranda</a>
+                <a href="#sdlc-phases" class="hover:text-blue-600 transition-colors">Fase SDLC</a>
+                <a href="#documents" class="hover:text-blue-600 transition-colors">Dokumen</a>
+                <a href="#comparison" class="hover:text-blue-600 transition-colors">Perbandingan</a>
+                <a href="#contact" class="hover:text-blue-600 transition-colors">Kontak</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuButton" class="md:hidden p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white py-2 shadow-lg">
+            <a href="#hero" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Beranda</a>
+            <a href="#sdlc-phases" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Fase SDLC</a>
+            <a href="#documents" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Dokumen</a>
+            <a href="#comparison" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Perbandingan</a>
+            <a href="#contact" class="block px-4 py-2 text-gray-800 hover:bg-blue-50">Kontak</a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white h-screen flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('assets/images/bg-sdlc.jpg'); background-attachment: fixed;"></div>
+            <div class="relative z-10 text-center px-4" data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg">
+                    SDLC Insight: Panduan Lengkap <br> Siklus Hidup Pengembangan Perangkat Lunak
+                </h1>
+                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">
+                    Pahami setiap tahapan dalam pengembangan perangkat lunak, dari ide hingga peluncuran dan pemeliharaan, untuk semua level keahlian.
+                </p>
+                <a href="#sdlc-phases" class="inline-block bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
+                    Pelajari Sekarang
+                    <svg class="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- Pengenalan SDLC Section -->
+        <section id="introduction" class="py-16 bg-white-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-700" data-aos="fade-up">Apa Itu SDLC?</h2>
+                <div class="max-w-4xl mx-auto text-lg leading-relaxed">
+                    <p class="mb-6" data-aos="fade-up" data-aos-delay="100">
+                        SDLC, atau <strong class="text-blue-600">Software Development Lifecycle (Siklus Hidup Pengembangan Perangkat Lunak)</strong>, adalah serangkaian tahapan terstruktur yang dilalui oleh sebuah proyek pengembangan perangkat lunak, mulai dari gagasan awal hingga peluncuran dan pemeliharaan. Ini adalah kerangka kerja yang membantu tim memastikan bahwa semua aspek pengembangan ditangani secara sistematis.
+                    </p>
+                    <h3 class="text-2xl font-semibold mb-4 text-gray-700" data-aos="fade-up" data-aos-delay="200">Mengapa SDLC Penting?</h3>
+                    <ul class="list-disc list-inside space-y-3 mb-6">
+                        <li data-aos="fade-right" data-aos-delay="300">
+                            <span class="font-medium text-blue-600">Kualitas Terjamin:</span> Membantu menghasilkan perangkat lunak berkualitas tinggi yang memenuhi kebutuhan pengguna.
+                        </li>
+                        <li data-aos="fade-right" data-aos-delay="400">
+                            <span class="font-medium text-blue-600">Efisiensi:</span> Mengurangi risiko, menghemat waktu, dan sumber daya dengan perencanaan yang matang.
+                        </li>
+                        <li data-aos="fade-right" data-aos-delay="500">
+                            <span class="font-medium text-blue-600">Manajemen Risiko:</span> Mengidentifikasi dan mengatasi potensi masalah lebih awal dalam siklus.
+                        </li>
+                        <li data-aos="fade-right" data-aos-delay="600">
+                            <span class="font-medium text-blue-600">Komunikasi Jelas:</span> Memastikan semua pihak yang terlibat memiliki pemahaman yang sama tentang tujuan dan proses proyek.
+                        </li>
+                    </ul>
+                    <p class="mb-6 italic text-center text-gray-600" data-aos="fade-up" data-aos-delay="700">
+                        Analogi: SDLC itu seperti resep masakan. Tanpa resep, Anda mungkin bisa memasak, tapi hasilnya tidak konsisten dan bisa jadi banyak bahan terbuang. Dengan resep (SDLC), Anda tahu langkah demi langkah untuk menghasilkan hidangan yang lezat dan sesuai harapan.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SDLC Phases Timeline Section -->
+        <section id="sdlc-phases" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-700" data-aos="fade-up">Fase-fase SDLC</h2>
+                
+                <!-- Fase 1: Pengumpulan Kebutuhan -->
+                <div class="flex flex-col md:flex-row items-center md:justify-between mb-20">
+                    <div class="md:w-1/2 md:pr-8 mb-8 md:mb-0" data-aos="fade-right" data-aos-duration="1000">
+                        <span class="badge badge-beginner">🔰 Pemula</span>
+                        <h3 class="text-3xl font-bold text-blue-600 mb-4 mt-2">1. Pengumpulan Kebutuhan</h3>
+                        <p class="text-lg mb-4">
+                            Tahap ini adalah fondasi dari seluruh proyek. Kita mencari tahu "apa" yang sebenarnya dibutuhkan oleh pengguna dan bisnis. Ini seperti mendengarkan keinginan pelanggan sebelum membangun rumah.
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 text-md">
+                            <li><strong class="font-semibold">URD (User Requirement Document):</strong> Apa yang diinginkan pengguna.</li>
+                            <li><strong class="font-semibold">BRD (Business Requirement Document):</strong> Mengapa fitur ini penting untuk bisnis.</li>
+                            <li><strong class="font-semibold">FSD (Functional Specification Document):</strong> Bagaimana fitur akan bekerja secara detail.</li>
+                            <li><strong class="font-semibold">NFR (Non-Functional Requirements):</strong> Kebutuhan non-fungsional (kinerja, keamanan, dll.).</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                        <img src="assets/images/requiretment.jpg" alt="Pengumpulan Kebutuhan" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                </div>
+
+                <!-- Parallax Section 1 -->
+                <div class="parallax-bg parallax-1 h-64 md:h-96 flex items-center justify-center text-white text-4xl font-bold mb-20 shadow-inner" data-aos="fade" data-aos-duration="1500">
+                    <span class="bg-black/20 p-4 rounded-lg">Membuat Peta Jalan</span>
+                </div>
+
+                <!-- Fase 2: Perencanaan -->
+                <div class="flex flex-col md:flex-row-reverse items-center md:justify-between mb-20">
+                    <div class="md:w-1/2 md:pl-8 mb-8 md:mb-0" data-aos="fade-left" data-aos-duration="1000">
+                        <span class="badge badge-intermediate">⭐ Menengah</span>
+                        <h3 class="text-3xl font-bold text-blue-600 mb-4 mt-2">2. Perencanaan</h3>
+                        <p class="text-lg mb-4">
+                            Setelah tahu apa yang dibutuhkan, kita merencanakan bagaimana membangunnya. Ini mencakup estimasi waktu, biaya, sumber daya, dan pembagian tugas.
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 text-md">
+                            <li><strong class="font-semibold">Rencana Proyek:</strong> Jadwal, anggaran, dan alokasi tim.</li>
+                            <li><strong class="font-semibold">Studi Kelayakan:</strong> Memastikan proyek bisa dilakukan.</li>
+                            <li><strong class="font-semibold">Analisis Risiko:</strong> Mengidentifikasi potensi masalah dan solusinya.</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                        <img src="assets/images/planning.jpg" alt="Perencanaan Proyek" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                </div>
+
+                <!-- Parallax Section 2 -->
+                <div class="parallax-bg parallax-2 h-64 md:h-96 flex items-center justify-center text-white text-4xl font-bold mb-20 shadow-inner" data-aos="fade" data-aos-duration="1500">
+                    <span class="bg-black/20 p-4 rounded-lg">Membangun Fondasi</span>
+                </div>
+
+                <!-- Fase 3: Desain -->
+                <div class="flex flex-col md:flex-row items-center md:justify-between mb-20">
+                    <div class="md:w-1/2 md:pr-8 mb-8 md:mb-0" data-aos="fade-right" data-aos-duration="1000">
+                        <span class="badge badge-advanced">🚀 Profesional</span>
+                        <h3 class="text-3xl font-bold text-blue-600 mb-4 mt-2">3. Desain</h3>
+                        <p class="text-lg mb-4">
+                            Pada tahap ini, kita merancang arsitektur perangkat lunak, database, antarmuka pengguna, dan komponen lainnya. Ini adalah cetak biru sebelum konstruksi dimulai.
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 text-md">
+                            <li><strong class="font-semibold">Arsitektur Sistem:</strong> Struktur keseluruhan perangkat lunak.</li>
+                            <li><strong class="font-semibold">Desain Database:</strong> Struktur data dan hubungan antar data.</li>
+                            <li><strong class="font-semibold">Desain UI/UX:</strong> Tampilan dan pengalaman pengguna.</li>
+                            <li><strong class="font-semibold">TSD (Technical Specification Document):</strong> Spesifikasi teknis detail.</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                        <img src="assets/images/design.jpg" alt="Desain Sistem" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                </div>
+
+                <!-- Parallax Section 3 -->
+                <div class="parallax-bg parallax-3 h-64 md:h-96 flex items-center justify-center text-white text-4xl font-bold mb-20 shadow-inner" data-aos="fade" data-aos-duration="1500">
+                    <span class="bg-black/20 p-4 rounded-lg">Mewujudkan Ide</span>
+                </div>
+
+                <!-- Fase 4: Implementasi (Coding) -->
+                <div class="flex flex-col md:flex-row-reverse items-center md:justify-between mb-20">
+                    <div class="md:w-1/2 md:pl-8 mb-8 md:mb-0" data-aos="fade-left" data-aos-duration="1000">
+                        <span class="badge badge-advanced">🚀 Profesional</span>
+                        <h3 class="text-3xl font-bold text-blue-600 mb-4 mt-2">4. Implementasi (Coding)</h3>
+                        <p class="text-lg mb-4">
+                            Ini adalah tahap di mana para pengembang menulis kode berdasarkan dokumen desain. Ide-ide diubah menjadi fungsionalitas nyata.
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 text-md">
+                            <li><strong class="font-semibold">Penulisan Kode:</strong> Mengubah desain menjadi kode program.</li>
+                            <li><strong class="font-semibold">Unit Testing:</strong> Menguji setiap komponen kode secara terpisah.</li>
+                            <li><strong class="font-semibold">Code Review:</strong> Memastikan kualitas dan standar kode.</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                        <img src="assets/images/coding.jpg" alt="Implementasi Coding" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                </div>
+
+                <!-- Fase 5: Pengujian -->
+                <div class="flex flex-col md:flex-row items-center md:justify-between mb-20">
+                    <div class="md:w-1/2 md:pr-8 mb-8 md:mb-0" data-aos="fade-right" data-aos-duration="1000">
+                        <span class="badge badge-intermediate">⭐ Menengah</span>
+                        <h3 class="text-3xl font-bold text-blue-600 mb-4 mt-2">5. Pengujian</h3>
+                        <p class="text-lg mb-4">
+                            Perangkat lunak diuji secara menyeluruh untuk menemukan dan memperbaiki bug atau kesalahan. Ini memastikan produk siap digunakan.
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 text-md">
+                            <li><strong class="font-semibold">Integrasi Testing:</strong> Menguji interaksi antar modul.</li>
+                            <li><strong class="font-semibold">System Testing:</strong> Menguji sistem secara keseluruhan.</li>
+                            <li><strong class="font-semibold">UAT (User Acceptance Testing):</strong> Pengguna menguji untuk validasi.</li>
+                            <li><strong class="font-semibold">Performance Testing:</strong> Menguji kinerja di bawah beban.</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                        <img src="assets/images/testing.jpg" alt="Pengujian Perangkat Lunak" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                </div>
+
+                <!-- Fase 6: Deployment -->
+                <div class="flex flex-col md:flex-row-reverse items-center md:justify-between mb-20">
+                    <div class="md:w-1/2 md:pl-8 mb-8 md:mb-0" data-aos="fade-left" data-aos-duration="1000">
+                        <span class="badge badge-advanced">🚀 Profesional</span>
+                        <h3 class="text-3xl font-bold text-blue-600 mb-4 mt-2">6. Deployment</h3>
+                        <p class="text-lg mb-4">
+                            Perangkat lunak siap diluncurkan dan diinstal di lingkungan produksi agar dapat diakses oleh pengguna akhir.
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 text-md">
+                            <li><strong class="font-semibold">Persiapan Lingkungan:</strong> Menyiapkan server dan infrastruktur.</li>
+                            <li><strong class="font-semibold">Instalasi:</strong> Menginstal aplikasi di server.</li>
+                            <li><strong class="font-semibold">Go-Live:</strong> Peluncuran resmi.</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                        <img src="assets/images/deployment.jpg" alt="Deployment Aplikasi" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                </div>
+
+                <!-- Fase 7: Pemeliharaan -->
+                <div class="flex flex-col md:flex-row items-center md:justify-between mb-20">
+                    <div class="md:w-1/2 md:pr-8 mb-8 md:mb-0" data-aos="fade-right" data-aos-duration="1000">
+                        <span class="badge badge-beginner">🔰 Pemula</span>
+                        <h3 class="text-3xl font-bold text-blue-600 mb-4 mt-2">7. Pemeliharaan</h3>
+                        <p class="text-lg mb-4">
+                            Setelah diluncurkan, perangkat lunak perlu dipelihara, diperbarui, dan ditingkatkan berdasarkan umpan balik pengguna dan perubahan kebutuhan.
+                        </p>
+                        <ul class="list-disc list-inside space-y-2 text-md">
+                            <li><strong class="font-semibold">Bug Fixing:</strong> Memperbaiki kesalahan yang ditemukan setelah peluncuran.</li>
+                            <li><strong class="font-semibold">Pembaruan:</strong> Menambahkan fitur baru atau meningkatkan yang sudah ada.</li>
+                            <li><strong class="font-semibold">Dukungan:</strong> Memberikan bantuan kepada pengguna.</li>
+                        </ul>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
+                        <img src="assets/images/maintenance.jpg" alt="Pemeliharaan Sistem" class="rounded-lg shadow-xl w-full max-w-md">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dokumen Penting SDLC Section -->
+        <section id="documents" class="py-16 bg-blue-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-700" data-aos="fade-up">Dokumen Penting dalam SDLC</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- URD Card -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <div class="bg-blue-100 text-blue-600 rounded-full p-4 mb-4">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">URD (User Requirement Document)</h3>
+                        <p class="text-gray-600 mb-4">
+                            Mendeskripsikan kebutuhan dari sudut pandang pengguna akhir. Apa yang ingin mereka capai dengan sistem.
+                        </p>
+                        <button onclick="showModal('urdModal')" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                            Baca Selengkapnya
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </button>
+                    </div>
+
+                    <!-- BRD Card -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <div class="bg-green-100 text-green-600 rounded-full p-4 mb-4">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2H7a2 2 0 00-2 2v2m7-7V3m0 4V3m0 4H9m7 0H9"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">BRD (Business Requirement Document)</h3>
+                        <p class="text-gray-600 mb-4">
+                            Menjelaskan kebutuhan dari perspektif bisnis. Mengapa fitur ini penting untuk mencapai tujuan bisnis.
+                        </p>
+                        <button onclick="showModal('brdModal')" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                            Baca Selengkapnya
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </button>
+                    </div>
+
+                    <!-- FSD Card -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="300">
+                        <div class="bg-yellow-100 text-yellow-600 rounded-full p-4 mb-4">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 21h7a2 2 0 002-2V9a2 2 0 00-2-2h-7a2 2 0 00-2 2v10a2 2 0 002 2zM9 3L7 5m4 0l2-2m-3 4H9m7 0h-1"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">FSD (Functional Specification Document)</h3>
+                        <p class="text-gray-600 mb-4">
+                            Merinci bagaimana sistem akan bekerja. Menjelaskan fungsionalitas, input, output, dan proses.
+                        </p>
+                        <button onclick="showModal('fsdModal')" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                            Baca Selengkapnya
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </button>
+                    </div>
+
+                    <!-- TSD Card -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center transform hover:scale-105 transition-transform duration-300" data-aos="fade-up" data-aos-delay="400">
+                        <div class="bg-red-100 text-red-600 rounded-full p-4 mb-4">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.592 1M12 8V3m0 9v3m0 3.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">TSD (Technical Specification Document)</h3>
+                        <p class="text-gray-600 mb-4">
+                            Menjelaskan detail teknis implementasi sistem, termasuk arsitektur, database, dan algoritma.
+                        </p>
+                        <button onclick="showModal('tsdModal')" class="text-blue-600 hover:text-blue-800 font-medium flex items-center">
+                            Baca Selengkapnya
+                            <svg class="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Perbandingan Metodologi SDLC Section -->
+        <section id="comparison" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-700" data-aos="fade-up">Metodologi SDLC: Agile vs. Waterfall</h2>
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <!-- Waterfall Card -->
+                    <div class="bg-blue-100 rounded-lg shadow-lg p-8 lg:w-1/2" data-aos="fade-right" data-aos-duration="1000">
+                        <h3 class="text-3xl font-bold text-blue-700 mb-4 flex items-center">
+                            <svg class="w-8 h-8 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                            Waterfall
+                        </h3>
+                        <p class="text-lg text-gray-700 mb-6">
+                            Model linier dan sekuensial di mana setiap fase harus diselesaikan sebelum fase berikutnya dimulai. Cocok untuk proyek dengan persyaratan yang sangat jelas dan stabil.
+                        </p>
+                        <h4 class="text-xl font-semibold text-blue-600 mb-3">Kelebihan:</h4>
+                        <ul class="list-disc list-inside text-gray-700 mb-6 space-y-1">
+                            <li>Struktur yang jelas dan mudah dipahami.</li>
+                            <li>Dokumentasi yang lengkap.</li>
+                            <li>Baik untuk proyek kecil dengan persyaratan tetap.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold text-blue-600 mb-3">Kekurangan:</h4>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                            <li>Kurang fleksibel terhadap perubahan.</li>
+                            <li>Risiko tinggi jika persyaratan berubah di tengah jalan.</li>
+                            <li>Pengujian dilakukan di akhir, bisa menemukan masalah terlambat.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Agile Card -->
+                    <div class="bg-green-100 rounded-lg shadow-lg p-8 lg:w-1/2" data-aos="fade-left" data-aos-duration="1000">
+                        <h3 class="text-3xl font-bold text-green-700 mb-4 flex items-center">
+                            <svg class="w-8 h-8 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            Agile
+                        </h3>
+                        <p class="text-lg text-gray-700 mb-6">
+                            Pendekatan iteratif dan inkremental yang berfokus pada kolaborasi, adaptasi terhadap perubahan, dan pengiriman fungsionalitas secara cepat.
+                        </p>
+                        <h4 class="text-xl font-semibold text-green-600 mb-3">Kelebihan:</h4>
+                        <ul class="list-disc list-inside text-gray-700 mb-6 space-y-1">
+                            <li>Sangat fleksibel dan adaptif terhadap perubahan.</li>
+                            <li>Pengiriman produk secara berkala.</li>
+                            <li>Melibatkan pelanggan secara aktif.</li>
+                        </ul>
+                        <h4 class="text-xl font-semibold text-green-600 mb-3">Kekurangan:</h4>
+                        <ul class="list-disc list-inside text-gray-700 space-y-1">
+                            <li>Membutuhkan keterlibatan pelanggan yang tinggi.</li>
+                            <li>Dokumentasi mungkin kurang detail.</li>
+                            <li>Sulit untuk mengestimasi waktu dan biaya di awal.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 bg-blue-600 text-white text-center">
+            <div class="container mx-auto px-4" data-aos="zoom-in" data-aos-duration="1000">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Siap Memulai Proyek Anda dengan SDLC yang Tepat?</h2>
+                <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">
+                    Pilih metodologi yang sesuai dengan kebutuhan proyek Anda dan pastikan keberhasilan pengembangan perangkat lunak.
+                </p>
+                <a href="#contact" class="inline-block bg-white text-blue-600 font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 ease-in-out">
+                    Hubungi Kami
+                    <svg class="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 text-blue-700" data-aos="fade-up">Kontak Kami</h2>
+                <div class="max-w-xl mx-auto bg-blue-50 rounded-lg shadow-lg p-8" data-aos="fade-up" data-aos-delay="200">
+                    <p class="text-center text-gray-700 mb-6">
+                        Punya pertanyaan lebih lanjut tentang SDLC atau butuh konsultasi untuk proyek Anda? Jangan ragu untuk menghubungi kami!
+                    </p>
+                    <form action="#" method="POST" class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" placeholder="Nama Anda" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                            <input type="email" id="email" name="email" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" placeholder="email@example.com" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Pesan Anda</label>
+                            <textarea id="message" name="message" rows="5" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all" placeholder="Tulis pesan Anda di sini..." required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-md transform hover:scale-105 transition-all duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                            Kirim Pesan
+                            <svg class="inline-block ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 9l3 3m0 0l-3 3m3-3H8m3 8v-5c0-1.1.9-2 2-2h2c1.1 0 2 .9 2 2v5m-1.5-11.5c.828 0 1.5-.672 1.5-1.5S17.328 5 16.5 5 15 5.672 15 6.5s.672 1.5 1.5 1.5z"></path></svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-4">
+                <a href="#" class="text-2xl font-bold text-blue-400">SDLC Insight</a>
+            </div>
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#hero" class="hover:text-blue-400 transition-colors">Beranda</a>
+                <a href="#sdlc-phases" class="hover:text-blue-400 transition-colors">Fase SDLC</a>
+                <a href="#documents" class="hover:text-blue-400 transition-colors">Dokumen</a>
+                <a href="#comparison" class="hover:text-blue-400 transition-colors">Perbandingan</a>
+                <a href="#contact" class="hover:text-blue-400 transition-colors">Kontak</a>
+            </div>
+            <p class="text-gray-400">&copy; 2024 SDLC Insight. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modals for Documents -->
+    <div id="urdModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-2xl transform scale-95 opacity-0 transition-all duration-300">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold text-blue-700">URD (User Requirement Document)</h3>
+                <button onclick="hideModal('urdModal')" class="text-gray-500 hover:text-gray-700">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="text-gray-700 max-h-96 overflow-y-auto pr-2">
+                <p class="mb-4">
+                    URD adalah dokumen yang menjelaskan kebutuhan fungsional dan non-fungsional dari sudut pandang pengguna akhir. Ini berfokus pada "apa" yang harus dilakukan sistem untuk memenuhi kebutuhan dan harapan pengguna.
+                </p>
+                <h4 class="font-semibold text-lg mb-2">Isi Utama URD:</h4>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Pendahuluan dan Tujuan</li>
+                    <li>Lingkup Sistem</li>
+                    <li>Kebutuhan Fungsional (Use Cases, Fitur)</li>
+                    <li>Kebutuhan Non-Fungsional (Performa, Keamanan, Usability)</li>
+                    <li>Antarmuka Pengguna</li>
+                    <li>Asumsi dan Keterbatasan</li>
+                </ul>
+                <p class="mb-4">
+                    Dokumen ini sangat penting untuk memastikan bahwa tim pengembangan memiliki pemahaman yang jelas tentang apa yang diinginkan pengguna, sehingga produk akhir benar-benar relevan dan bermanfaat.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="brdModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-2xl transform scale-95 opacity-0 transition-all duration-300">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold text-blue-700">BRD (Business Requirement Document)</h3>
+                <button onclick="hideModal('brdModal')" class="text-gray-500 hover:text-gray-700">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="text-gray-700 max-h-96 overflow-y-auto pr-2">
+                <p class="mb-4">
+                    BRD adalah dokumen yang menjelaskan kebutuhan dari perspektif bisnis. Ini berfokus pada "mengapa" sebuah fitur atau sistem diperlukan, dan bagaimana hal itu akan memberikan nilai bisnis.
+                </p>
+                <h4 class="font-semibold text-lg mb-2">Isi Utama BRD:</h4>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Ringkasan Eksekutif</li>
+                    <li>Tujuan Bisnis dan Sasaran</li>
+                    <li>Ruang Lingkup Bisnis</li>
+                    <li>Kebutuhan Bisnis (High-level)</li>
+                    <li>Proses Bisnis Saat Ini dan yang Diusulkan</li>
+                    <li>Stakeholder dan Peran</li>
+                    <li>Metrik Keberhasilan</li>
+                </ul>
+                <p class="mb-4">
+                    BRD menjembatani kesenjangan antara tim bisnis dan tim teknis, memastikan bahwa semua orang memahami tujuan strategis di balik pengembangan perangkat lunak.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="fsdModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-2xl transform scale-95 opacity-0 transition-all duration-300">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold text-blue-700">FSD (Functional Specification Document)</h3>
+                <button onclick="hideModal('fsdModal')" class="text-gray-500 hover:text-gray-700">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="text-gray-700 max-h-96 overflow-y-auto pr-2">
+                <p class="mb-4">
+                    FSD adalah dokumen yang merinci fungsionalitas sistem. Ini menjelaskan "bagaimana" sistem akan bekerja, termasuk setiap fitur, input, output, dan perilaku sistem.
+                </p>
+                <h4 class="font-semibold text-lg mb-2">Isi Utama FSD:</h4>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Deskripsi Fungsionalitas</li>
+                    <li>Kasus Penggunaan (Use Cases) yang Detail</li>
+                    <li>Alur Kerja Sistem</li>
+                    <li>Aturan Bisnis</li>
+                    <li>Antarmuka Eksternal</li>
+                    <li>Persyaratan Data</li>
+                    <li>Kondisi Pra-dan Pasca-kondisi untuk Setiap Fungsi</li>
+                </ul>
+                <p class="mb-4">
+                    FSD berfungsi sebagai panduan bagi pengembang dan penguji, memastikan bahwa semua fungsionalitas yang diperlukan diimplementasikan dengan benar.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="tsdModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-lg shadow-xl p-6 w-full max-w-2xl transform scale-95 opacity-0 transition-all duration-300">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-2xl font-bold text-blue-700">TSD (Technical Specification Document)</h3>
+                <button onclick="hideModal('tsdModal')" class="text-gray-500 hover:text-gray-700">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div class="text-gray-700 max-h-96 overflow-y-auto pr-2">
+                <p class="mb-4">
+                    TSD adalah dokumen yang merinci detail teknis implementasi perangkat lunak. Ini menjelaskan "bagaimana" sistem akan dibangun dari perspektif teknis.
+                </p>
+                <h4 class="font-semibold text-lg mb-2">Isi Utama TSD:</h4>
+                <ul class="list-disc list-inside mb-4">
+                    <li>Arsitektur Sistem</li>
+                    <li>Desain Database (Skema, Relasi)</li>
+                    <li>Desain Modul dan Komponen</li>
+                    <li>Algoritma dan Struktur Data</li>
+                    <li>Antarmuka Internal</li>
+                    <li>Pertimbangan Keamanan</li>
+                    <li>Rencana Deployment</li>
+                </ul>
+                <p class="mb-4">
+                    TSD adalah panduan bagi tim pengembangan untuk mengimplementasikan sistem dengan benar dan efisien, sesuai dengan desain arsitektur yang telah disepakati.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: false, // Ensures animations trigger every time element comes into view
+            mirror: true // Whether elements should animate out while scrolling past them
+        });
+
+        // Sticky Navbar Logic
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'shadow-lg');
+                navbar.classList.remove('py-3');
+            } else {
+                navbar.classList.remove('py-2', 'shadow-lg');
+                navbar.classList.add('py-3');
+            }
+        });
+
+        // Scroll Progress Bar Logic
+        window.addEventListener('scroll', () => {
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollProgress = (window.scrollY / totalHeight) * 100;
+            document.getElementById('progressBar').style.width = scrollProgress + '%';
+        });
+
+        // Mobile Menu Toggle Logic
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('block');
+        });
+
+        // Modal Logic
+        function showModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('hidden');
+            // Animate modal in
+            setTimeout(() => {
+                modal.querySelector('div').classList.remove('scale-95', 'opacity-0');
+                modal.querySelector('div').classList.add('scale-100', 'opacity-100');
+            }, 50);
+        }
+
+        function hideModal(modalId) {
+            const modal = document.getElementById(modalId);
+            // Animate modal out
+            modal.querySelector('div').classList.remove('scale-100', 'opacity-100');
+            modal.querySelector('div').classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300); // Match transition duration
+        }
+
+        // Close modal when clicking outside
+        document.querySelectorAll('.fixed.inset-0.bg-opacity-50').forEach(modal => {
+            modal.addEventListener('click', function(event) {
+                if (event.target === this) {
+                    hideModal(this.id);
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+                // Close mobile menu after clicking a link
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('block');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

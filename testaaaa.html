@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" class="transition-colors duration-500">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dark Mode Tailwind</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Aktifkan mode dark lewat class
+    tailwind.config = {
+      darkMode: 'class',
+    };
+  </script>
+</head>
+<body class="bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-500">
+
+  <div class="min-h-screen flex flex-col items-center justify-center gap-6">
+    <h1 class="text-4xl font-bold">Dark Mode / Light Mode</h1>
+    <button id="toggleDark" class="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">
+      Toggle Mode
+    </button>
+  </div>
+
+  <script>
+    const toggle = document.getElementById('toggleDark');
+    const html = document.documentElement;
+
+    toggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+    });
+  </script>
+
+</body>
+</html>
