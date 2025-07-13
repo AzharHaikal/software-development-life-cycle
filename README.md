@@ -6,7 +6,7 @@ Live demo : https://software-development-life-cycle.netlify.app/
 
 ---
 
-# Fitur Utama 🌟
+## Fitur Utama 🌟
 - Pengenalan SDLC: Penjelasan mendalam tentang apa itu SDLC dan mengapa penting dalam pengembangan perangkat lunak. 💡
 - Fase-fase SDLC: Rincian setiap tahapan SDLC, mulai dari Pengumpulan Kebutuhan hingga Pemeliharaan, dilengkapi dengan penjelasan dan contoh dokumen kunci. 📋
 - Dokumen Kunci SDLC: Penjelasan singkat tentang dokumen-dokumen penting seperti URD, BRD, FSD, TSD, Test Plan, dan Release Notes, dengan modal pop-up untuk detail lebih lanjut. 📄
@@ -19,7 +19,7 @@ Live demo : https://software-development-life-cycle.netlify.app/
 
 ---
 
-# Teknologi yang Digunakan 🛠️
+## Teknologi yang Digunakan 🛠️
 HTML5: Struktur dasar halaman web. 🌐
 - Tailwind CSS: Framework CSS utility-first untuk styling yang cepat dan responsif. 🎨
 - JavaScript (Vanilla JS): Untuk interaktivitas pada website, termasuk toggle dark mode, menu mobile, modal, dan efek scroll. 💻
@@ -28,7 +28,7 @@ HTML5: Struktur dasar halaman web. 🌐
 
 ---
 
-# Instalasi dan Penggunaan (Lokal) 🚀
+## Instalasi dan Penggunaan (Lokal) 🚀
 Untuk menjalankan proyek ini secara lokal, ikuti langkah-langkah berikut:
 
 1. Clone repositori:
@@ -52,7 +52,7 @@ sdlc-insight/
 
 ---
 
-# Kontribusi 👋
+## Kontribusi 👋
 Kontribusi sangat dihargai! Jika Anda memiliki saran, perbaikan, atau ingin menambahkan fitur baru, silakan:
 - Fork repositori ini. 🍴
 - Buat branch baru (git checkout -b feature/nama-fitur-baru). 🌿
@@ -63,6 +63,6 @@ Kontribusi sangat dihargai! Jika Anda memiliki saran, perbaikan, atau ingin mena
 
 ---
 
-# Lisensi 📜
+## Lisensi 📜
 Proyek ini dilisensikan di bawah Lisensi MIT. Lihat file LICENSE untuk detail lebih lanjut.
 SDLC Insight - Membantu Anda memahami dunia pengembangan perangkat lunak dengan lebih baik. 💡
