@@ -1,11 +1,12 @@
-SDLC Insight: Panduan Lengkap Siklus Hidup Pengembangan Perangkat Lunak 🚀
-!
-
-Live demo : https://software-development-life-cycle.netlify.app/
+# SDLC Insight: Panduan Lengkap Siklus Hidup Pengembangan Perangkat Lunak 🚀!
 
 SDLC Insight adalah website panduan komprehensif yang dirancang untuk membantu siapa saja memahami Siklus Hidup Pengembangan Perangkat Lunak (Software Development Lifecycle - SDLC) dari dasar hingga tingkat profesional. Website ini menyajikan informasi dalam Bahasa Indonesia yang mudah dipahami, menjadikannya sumber daya yang ideal bagi pelajar, profesional, atau siapa pun yang tertarik pada pengembangan perangkat lunak. 📚✨
 
-Fitur Utama 🌟
+Live demo : https://software-development-life-cycle.netlify.app/
+
+---
+
+# Fitur Utama 🌟
 - Pengenalan SDLC: Penjelasan mendalam tentang apa itu SDLC dan mengapa penting dalam pengembangan perangkat lunak. 💡
 - Fase-fase SDLC: Rincian setiap tahapan SDLC, mulai dari Pengumpulan Kebutuhan hingga Pemeliharaan, dilengkapi dengan penjelasan dan contoh dokumen kunci. 📋
 - Dokumen Kunci SDLC: Penjelasan singkat tentang dokumen-dokumen penting seperti URD, BRD, FSD, TSD, Test Plan, dan Release Notes, dengan modal pop-up untuk detail lebih lanjut. 📄
@@ -16,14 +17,18 @@ Fitur Utama 🌟
 - Animasi AOS: Efek animasi saat menggulir halaman menggunakan AOS (Animate On Scroll) Library. 💫
 - Progress Bar Scroll: Indikator visual yang menunjukkan seberapa jauh pengguna telah menggulir halaman. 📊
 
-Teknologi yang Digunakan 🛠️
+---
+
+# Teknologi yang Digunakan 🛠️
 HTML5: Struktur dasar halaman web. 🌐
 - Tailwind CSS: Framework CSS utility-first untuk styling yang cepat dan responsif. 🎨
 - JavaScript (Vanilla JS): Untuk interaktivitas pada website, termasuk toggle dark mode, menu mobile, modal, dan efek scroll. 💻
 - AOS (Animate On Scroll) Library: Untuk efek animasi saat menggulir halaman. ✨
 - Google Fonts: Menggunakan font 'Inter' dan 'Poppins' untuk tipografi yang menarik dan mudah dibaca. ✍️
 
-Instalasi dan Penggunaan (Lokal) 🚀
+---
+
+# Instalasi dan Penggunaan (Lokal) 🚀
 Untuk menjalankan proyek ini secara lokal, ikuti langkah-langkah berikut:
 
 1. Clone repositori:
@@ -45,7 +50,9 @@ sdlc-insight/
 └── README.md
 ```
 
-Kontribusi 👋
+---
+
+# Kontribusi 👋
 Kontribusi sangat dihargai! Jika Anda memiliki saran, perbaikan, atau ingin menambahkan fitur baru, silakan:
 - Fork repositori ini. 🍴
 - Buat branch baru (git checkout -b feature/nama-fitur-baru). 🌿
@@ -54,7 +61,8 @@ Kontribusi sangat dihargai! Jika Anda memiliki saran, perbaikan, atau ingin mena
 - Push ke branch Anda (git push origin feature/nama-fitur-baru). ⬆️
 - Buka Pull Request. 🤝
 
-Lisensi 📜
-Proyek ini dilisensikan di bawah Lisensi MIT. Lihat file LICENSE untuk detail lebih lanjut.
+---
 
+# Lisensi 📜
+Proyek ini dilisensikan di bawah Lisensi MIT. Lihat file LICENSE untuk detail lebih lanjut.
 SDLC Insight - Membantu Anda memahami dunia pengembangan perangkat lunak dengan lebih baik. 💡
