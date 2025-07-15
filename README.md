@@ -4,6 +4,8 @@ SDLC Insight adalah website panduan komprehensif yang dirancang untuk membantu s
 
 Live demo : https://software-development-life-cycle.netlify.app/
 
+![Mockup Screenshot](assets/images/readme.png)
+
 ---
 
 ## Fitur Utama 🌟
@@ -54,7 +56,7 @@ sdlc-insight/
 
 ## Kontribusi 👋
 Kontribusi sangat dihargai! Jika Anda memiliki saran, perbaikan, atau ingin menambahkan fitur baru, silakan:
-- Fork repositori ini. 🍴
+- Fork repositori ini.
 - Buat branch baru (git checkout -b feature/nama-fitur-baru). 🌿
 - Lakukan perubahan Anda. 📝
 - Commit perubahan Anda (git commit -m 'Tambahkan fitur baru'). ✅
